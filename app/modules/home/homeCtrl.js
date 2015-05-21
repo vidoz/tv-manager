@@ -25,51 +25,11 @@ angular.module(myAppName).controller('HomeCtrl', ["$scope", "$timeout", "$interp
         return input;
     }
 
-    $scope.testModel = "";
-    $scope.testFn = function(){
-        //tvRage.getTvShowData($scope.testModel).then(function(data){
-        //    console.dir(data);
-        //    console.log(tvRage.getEpisodeTitle(data, 1 , 5));
-        //});
-
-        //var path = "C:\\Users\\Alessandro\\Desktop\\testRename\\Black.Sails.S02E09.HDTV.x264-ASAP.mp4";
-        //var path = "C:\\Users\\Alessandro\\Desktop\\testRename\\Black Sails S02E01.txt";
-        //
-        //// Read song.mp3 metadata
-        //ffmetadata.read(path, function(err, data) {
-        //    if (err) console.error("Error reading metadata", err);
-        //    else console.log(data);
-        //});
-
-        //// Set the artist for song.mp3
-        //var data = {
-        //    artist: "Me",
-        //};
-        //ffmetadata.write("song.mp3", data, function(err) {
-        //    if (err) console.error("Error writing metadata", err);
-        //    else console.log("Data written");
-        //});
-
-    };
-
-    $scope.basename = path.basename;
-    $scope.dirname = path.dirname;
-
-    $scope.sourceDir = "";
-    $scope.destinationDir = "";
     $scope.files = [];
 
+    $scope.tableFilter = {};
 
     $scope.params = dataStorage.getData('settings');
-    //$scope.params.patterns = [
-    //    "(.+?\\d{4}\\W\\D*?)[sS]?(\\d\\d?)\\D*?(\\d\\d).*", // this one works for titles with years
-    //    "(.+?\\W\\D*?)[sS](\\d\\d?)[eE](\\d\\d?).*", // this one matches SXXEXX
-    //    "(.+\\W\\D*?)[sS](\\d\\d?)\\D*?[eE](\\d\\d).*", // this one matches sXX.eXX
-    //    "(.+\\W\\D*?)(\\d\\d?)\\D+(\\d\\d).*", // this one matches everything else
-    //    "(.+\\W*)(\\d\\d?)(\\d\\d).*" // truly last resort
-    //];
-    //$scope.params.nameTemplate = "{{name}} S{{season}}E{{episode}} - {{episodeTitle}}";
-    //$scope.params.pathTemplate = "{{baseFolder}}{{DS}}{{show.name}}{{DS}}{{show.name}} S{{show.season}}";
     $scope.params.moveFile = false;
     $scope.params.renameFile = true;
 

@@ -34,9 +34,15 @@
                 <th>New name</th>
                 <th ng-show="params.moveFile">New path</th>
             </tr>
+            <tr>
+                <td></td>
+                <td><input class="form-control" type="text" ng-model="tableFilter.filePath" /></td>
+                <td><input class="form-control" type="text" ng-model="tableFilter.fileName" /></td>
+                <td ng-show="params.moveFile"><input class="form-control" type="text" ng-model="tableFilter.destinationDir" /></td>
+            </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="file in files"
+            <tr ng-repeat="file in files | filter:tableFilter"
                 ng-class="{'danger':file.status==500, 'warning':file.status==300, 'success':file.status==200}">
                 <td><input type="checkbox" ng-model="file.process"/></td>
                 <td>{{file.filePath}}</td>

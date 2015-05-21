@@ -18,15 +18,10 @@ var dep = [
 
 angular.module('tvManager', dep)
     .config(['$routeProvider', "$provide", "manifestProvider", function ($routeProvider, $provide, manifestProvider) {
-        //TODO resolver implementation
-        var resolvers = {
-            "testResolver": [function () {
-                return true;
-            }]
-        };
+        var resolvers = {};
         manifestProvider.generateRoutes(resolvers);
 
-        $provide.decorator('$controller', ["$delegate", "$injector", function ($delegate, $injector) {
+        $provide.decorator('$controller', ["$delegate", function ($delegate) {
             return function (expression, locals, later, ident) {
 //                locals.$scope.locale = locals.$scope.locale || (locals.locale ? locals.locale : $injector.get("locale"));
                 if (locals.manifest) {
