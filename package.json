@@ -1,0 +1,18 @@
+{
+  "name": "tvManager",
+  "main": "app/index.html",
+  "private": true,
+  "version": "0.0.1",
+  "description": "A tv shows manager",
+  "repository": "",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-json": "~0.1.5"
+  },
+  "dependencies": {
+    "node-dir": "~0.1.8",
+    "mv": "~2.0.3",
+    "xml2js": "~0.4.8"
+  }
+}

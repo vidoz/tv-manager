@@ -1,0 +1,19 @@
+<!--<div class="container">-->
+    <div class="row">
+        <form ng-submit="saveSettings()">
+            <div class="form-group">
+                <label for="nameTemplate">Name template</label>
+                <input type="text" class="form-control" id="nameTemplate" ng-model="settings.nameTemplate">
+            </div>
+            <div class="form-group">
+                <label for="pathTemplate">Path template</label>
+                <input type="text" class="form-control" id="pathTemplate" ng-model="settings.pathTemplate">
+            </div>
+            <div class="form-group">
+                <label>Patterns</label>
+                <input ng-repeat="filePattern in settings.patterns" type="text" class="form-control"  ng-model="filePattern">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
+        </form>
+    </div>
+<!--</div>-->

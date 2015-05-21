@@ -1,0 +1,16 @@
+node_modules
+app/lib
+app/resources
+.idea
+
+libEGL.dll
+libGLESv2.dll
+icudtl.dat
+nwjc.exe
+nw.exe
+ffmpegsumo.dll
+d3dcompiler_47.dll
+pdf.dll
+credits.html
+nw.pak
+locales

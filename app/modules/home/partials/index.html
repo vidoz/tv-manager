@@ -1,0 +1,49 @@
+<!--<div class="container">-->
+    <div class="row">
+        <form class="">
+                <div class="form-group col-sm-6">
+                    <span class="file-input btn-block btn btn-default btn-file">
+                        {{params.sourceDir || 'Select source directory'}}<input id="sourceDirSelector" class="" placeholder="Select source directory" type="file" nwdirectory/>
+                    </span>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <span class="file-input btn-block btn btn-default btn-file">
+                        {{params.destinationDir || 'Select destination directory'}}<input id="destinationDirSelector" class="" placeholder="Select destination directory" type="file" nwdirectory/>
+                    </span>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="btn-group btn-group-justified" role="group">
+                        <a  class="btn btn-default" ng-class="{'active': params.renameFile}" ng-click="params.renameFile = !params.renameFile">Rename file</a>
+                        <a  class="btn btn-default" ng-class="{'active': params.moveFile}" ng-click="params.moveFile = !params.moveFile">Move file</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-block btn-primary" ng-click="moveFiles()">Process</button>
+                </div>
+        </form>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Path</th>
+                <th>New name</th>
+                <th ng-show="params.moveFile">New path</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="file in files"
+                ng-class="{'danger':file.status==500, 'warning':file.status==300, 'success':file.status==200}">
+                <td><input type="checkbox" ng-model="file.process"/></td>
+                <td>{{file.filePath}}</td>
+                <td>{{file.fileName}}</td>
+                <td ng-show="params.moveFile">{{file.destinationDir}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+<!--</div>-->
