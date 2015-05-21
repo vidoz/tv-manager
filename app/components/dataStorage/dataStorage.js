@@ -6,6 +6,11 @@
     angular.module('dataStorage', dep)
         .provider('dataStorage', [
             function () {
+                var Datastore = require('nedb');
+                var path = require('path');
+                var db = {};
+                db.settings = new Datastore({ filename: path.join(require('nw.gui').App.dataPath, 'settings.db'), autoload: true });
+                db.movies = new Datastore({ filename: path.join(require('nw.gui').App.dataPath, 'movies.db'), autoload: true });
 
                 /*Factory function*/
                 this.$get = ["$q", function ($q) {
