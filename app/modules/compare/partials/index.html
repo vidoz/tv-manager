@@ -1,0 +1,26 @@
+<!--<div class="container">-->
+    <div class="row">
+        <form class="">
+            <div class="form-group col-sm-5">
+                    <span class="file-input btn-block btn btn-default btn-file">
+                        {{params.sourceDir || 'Select source directory'}}<input id="sourceDirSelector" class="" placeholder="Select source directory" type="file" nwdirectory/>
+                    </span>
+            </div>
+
+            <div class="form-group col-sm-5">
+                    <span class="file-input btn-block btn btn-default btn-file">
+                        {{params.destinationDir || 'Select destination directory'}}<input id="destinationDirSelector" class="" placeholder="Select destination directory" type="file" nwdirectory/>
+                    </span>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-block btn-primary" ng-click="compareDirectories()">Compare</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <p>Missing source files {{countMissing(files.source)}} / {{files.source.length}}</p>
+        <ul>
+            <li ng-repeat="file in files.source" ng-show="!file.fileExist">{{file.fileName}}</li>
+        </ul>
+    </div>
+<!--</div>-->
