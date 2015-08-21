@@ -10,13 +10,16 @@
             <div class="col-sm-2">
                 <button type="button" class="btn btn-block btn-primary" ng-click="findEmptyFolders()">Find empty</button>
             </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-block btn-primary" ng-click="findGarbage()">Find garbage</button>
+            </div>
         </form>
     </div>
     <div>
-        <p>Empty folders {{files.source.length}}</p>
+        <p>Elements to remove {{files.source.length}}</p>
         <ul>
             <li ng-repeat="file in files.source" ng-show="!file.fileExist">{{file.name}}</li>
         </ul>
-        <button type="button" class="btn btn-block btn-primary" ng-click="removeFolders(files.source)" ng-show="files.source.length">Remove Folders</button>
+        <button type="button" class="btn btn-block btn-primary" ng-click="removeElements(files.source)" ng-show="files.source.length">Remove Elements</button>
     </div>
 <!--</div>-->

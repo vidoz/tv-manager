@@ -121,7 +121,9 @@ angular.module(myAppName).controller('HomeCtrl', ["$scope", "$timeout", "$interp
             $timeout(function () {
                 $scope.files.splice(0);
                 angular.forEach(files, function (file) {
-                    $scope.files.push(processFile(file));
+                    //if(file.indexOf("daCancellare")==-1) {
+                        $scope.files.push(processFile(file));
+                    //}
                 });
             });
         });

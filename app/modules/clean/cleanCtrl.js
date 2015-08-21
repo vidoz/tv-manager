@@ -36,13 +36,35 @@ angular.module(myAppName).controller('CleanCtrl', ["$scope", "$timeout", "$q", "
         });
     };
 
-    $scope.removeFolders = function removeFolders(folders){
-        angular.forEach(folders, function(folder){
-            //console.log(folder);
-            fs.rmdirSync(folder.name);
+    $scope.findGarbage = function findGarbage(){
+        dir.files($scope.params.sourceDir, function (err, files) {
+            $scope.files.source.splice(0);
+            $timeout(function () {
+                angular.forEach(files, function(fsFileName){
+                    var ext = path.extname(fsFileName);
+                    //console.log(fsFileName, ext);
+                    if(ext=='.txt' || ext=='.nfo') {
+                        $scope.files.source.push({name: fsFileName});
+                    }
+                });
+            });
+        });
+    };
+
+    $scope.removeElements = function removeElements(elements){
+        angular.forEach(elements, function(elem){
+            //console.log(elem);
+            var stat = fs.statSync(elem.name);
+            if(stat.isDirectory()) {
+                fs.rmdirSync(elem.name);
+            }else{
+                fs.unlinkSync(elem.name)
+            }
         });
         alert("Done");
-        $scope.findEmptyFolders();
+        $timeout(function(){
+            $scope.files.source.splice(0);
+        },0);
     };
 
     $('#sourceDirSelector').on('change', function (evt) {
