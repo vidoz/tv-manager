@@ -1,0 +1,34 @@
+<!--<div class="container">-->
+    <div class="row">
+        <button class="btn btn-default" ng-show="chapterList && chapterList.length" ng-click="backToMangaList()">Back to manga</button>
+        <button class="btn btn-default" ng-show="imageList && imageList.length" ng-click="backToChapterList()">Back to chapter</button>
+    </div>
+    <div class="row">
+        <form class="" name="mangaListFilter" ng-hide="chapterList">
+            <div class="form-group">
+                <!--<label for="mangaName">Title</label>-->
+                <input type="text" class="form-control" id="mangaName" placeholder="Title" ng-model="filters.manga.title">
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <ul ng-hide="chapterList" class="list-unstyled">
+            <li ng-repeat="manga in mangaList | filter:filters.manga | orderBy:'title' | limitTo:25:0" ng-click="getMangaChapters(manga)">{{manga.title}}</li>
+        </ul>
+
+        <ul ng-swhow="chapterList" ng-hide="imageList" class="list-unstyled">
+            <li ng-repeat="chapter in chapterList | orderBy:'number':true" ng-click="getChapterImages(chapter)">{{chapter.number}} - {{chapter.title}}</li>
+        </ul>
+
+        <ul ng-swhow="imageList" class="list-unstyled">
+            <li ng-repeat="image in imageList | orderBy:'number'"><img ng-src="{{image.url}}" class="img-responsive center-block" /></li>
+        </ul>
+    </div>
+    <!--<div class="row">-->
+        <!--<ul>-->
+            <!--<li ng-click="pagination.goToPage(pagination.currentPage-1)">Prev</li>-->
+            <!--<li ng-repeat="page in pagination.pages" ng-click="pagination.goToPage(page)">{{page + 1}}</li>-->
+            <!--<li ng-click="pagination.goToPage(pagination.currentPage+1)">Next</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->

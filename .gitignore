@@ -3,6 +3,8 @@ app/lib
 app/resources
 .idea
 
+*.iml
+
 libEGL.dll
 libGLESv2.dll
 icudtl.dat
